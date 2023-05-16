@@ -1,0 +1,11 @@
+config/local.neon
+/vendor
+/composer.lock
+/tests
+bin/*
+log/*
+temp/*
+tests/*
+vendor/*
+composer.json
+composer.lock
