@@ -4,7 +4,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <form n:name="addFoodForm">
+        <form n:name="addFoodForm" class="ajax" data-naja-history="replace">
             <div class="mb-3">
                 <label for="item-name" class="form-label">Item Name</label>
                 <input type="text" class="form-control" id="item-name" n:name="itemName" required>
@@ -28,11 +28,21 @@
             </div>
             <div class="mb-3">
                 <label for="item-ingredients" class="form-label">Ingredients (separated by commas)</label>
-                <input type="text" class="form-control" id="item-ingredients" n:name="itemIngredients" required>
+                <input type="text" class="form-control readolny" id="item-ingredients" n:name="itemIngredients" required>
             </div>
+
+            <input n:name=itemIngredients_Id class="hidden readolny">
+        <div class="mb-3">
+
+            {foreach $alergens as $key => $alergen}
+                <span class="badge {$spanClass[$key]}" data-id="{$alergen->id}">{$alergen->name}</span>
+            {/foreach}
+
+
+        </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
 
     </div>
 </div>

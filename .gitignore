@@ -9,3 +9,4 @@ tests/*
 vendor/*
 composer.json
 composer.lock
+.idea/workspace.xml
