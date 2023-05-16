@@ -28,7 +28,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
 
 
-        $this->template->food = $request->body;
+        $this->template->foods = $request->body;
 }
     protected function createComponentLoginForm(): Form
     {
@@ -47,6 +47,50 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         };
 
         return $form;
+    }
+
+    protected function createComponentAddFoodForm(): Form
+    {
+        $countries = [
+            'CZ' => 'Czech republic',
+            'SK' => 'Slovakia',
+            'GB' => 'United Kingdom',
+        ];
+
+        $form = new Form();
+        $form->addText('itemName', 'Item Name')
+            ->setRequired();
+        $form->addTextArea('itemDescription', 'Item Description')
+            ->setRequired();
+        $form->addText('itemPrice', 'Price')
+            ->setRequired()
+            ->addRule(Form::FLOAT, 'Zadejte číslo')
+            ->addRule(Form::MIN, 'Price must be greater than 0', 0);
+        $form->addSelect('itemCategory', 'Category ID',$countries)
+            ->setRequired();
+        $form->addUpload('itemImage', 'Image File')
+            ->setRequired()
+            ->addRule(Form::MIME_TYPE, 'Please upload an image', ['image/jpeg', 'image/png']);
+        $form->addText('itemIngredients', 'Ingredients (separated by commas)')
+            ->setRequired();
+
+        $form->addSubmit('submit', 'Submit');
+
+        $form->onSuccess[] = [$this, 'processForm'];
+
+        return $form;
+    }
+
+    public function processForm(Form $form, array $values): void
+    {
+        // Zpracování formuláře, např. uložení dat do databáze, nahrání obrázku, atd.
+        // ...
+        // Příklad: Vypište zadané hodnoty formuláře
+        foreach ($values as $name => $value) {
+            dump($name, $value);
+        }
+var_dump($values);
+        die;
     }
 
     public function actionLogin(string $username, string $password): void

@@ -1,0 +1,23 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="login-dialog-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="login-dialog-label">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form n:name="loginForm" id="login-form">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" n:name="username" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" n:name="password" autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="login-submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
