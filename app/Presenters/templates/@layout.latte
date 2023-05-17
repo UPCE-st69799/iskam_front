@@ -8,7 +8,7 @@
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-	<script src="https://unpkg.com/naja@2/dist/Naja.min.js"></script>
+
 </head>
 
 <body>
@@ -28,8 +28,37 @@
 </html>
 <script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
 
-
+<script src="https://unpkg.com/naja@2/dist/Naja.min.js"></script>
 <script>
-	naja.initialize();
+      naja.initialize();
+
+	document.addEventListener('DOMContentLoaded', function () {
+		const form = document.forms.filterForm;
+		const select = document.getElementById('categoryFilter');
+		const sort = document.getElementById('sortFilter');
+		const search = document.getElementById('custom-search');
+		const hidden = document.getElementById('itemIngredientsFilter_Id_select');
+
+		// Při změně hodnoty selectu odeslat formulář pomocí AJAX
+		select.addEventListener('change', function () {
+			naja.uiHandler.submitForm(event.target.form);
+		});
+
+		sort.addEventListener('change', function () {
+			naja.uiHandler.submitForm(event.target.form);
+		});
+
+		search.addEventListener('input', function () {
+				naja.uiHandler.submitForm(event.target.form);
+		});
+
+		hidden.addEventListener('change', function () {
+
+				naja.uiHandler.submitForm(event.target.form);
+		});
+
+
+	});
+
 
 </script>

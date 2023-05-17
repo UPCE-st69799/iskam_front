@@ -6,7 +6,9 @@
     body {
         background-color: whitesmoke;
     }
-
+.white{
+    background-color: white;
+}
     #custom-search {
         border-color: whitesmoke;
         background-color: whitesmoke;
@@ -51,7 +53,7 @@
 </style>
 
 
-<form n:name="filterForm" class="ajax">
+<form n:name="filterForm" >
     <nav class="navbar navbar-expand-lg navbar-light bg-white" style="height: 80px;">
         <div class="container-fluid">
             <div class="navbar-collapse collapse w-100 order-1 order-lg-0">
@@ -64,12 +66,11 @@
             <div class="navbar-collapse collapse w-100 order-2">
                 <div class="d-flex w-100 justify-content-center">
                     <div class="input-group">
-                        <input n:name="name" class="form-control form-control-lg" type="search" placeholder="Search"
+                        <input n:name="name" class="form-control form-control-lg ajax" type="search" placeholder="Search"
                                              aria-label="Search"
                                              id="custom-search">
                     </div>
                 </div>
-                <button type="submit">odelsat</button>
             </div>
             <div class="navbar-collapse collapse w-100 order-3 order-lg-2">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -92,7 +93,6 @@
 
     </nav>
 
-    <!-- Page content -->
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
@@ -100,7 +100,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label for="categoryFilter" class="form-label">Kategorie</label>
-                            <select n:name="categoryFilter" class="form-select ajax" id="categoryFilter">
+                            <select n:name="categoryFilter" class="form-select ajax categoryFilter" id="categoryFilter">
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -108,67 +108,60 @@
                             <div class="mb-3">
                                 {if count($alergens) > 0}
                                     {foreach $alergens as $key => $alergen}
-                                        <span class="badge {$spanClass[$key]} filter ajax"
-                                              data-id="{$alergen->id}">{$alergen->name}</span>
+                                        <div class="badge {$spanClass[$key]} filter ajax" data-id="{$alergen->id}">{$alergen->name}</div>
                                     {/foreach}
-
                                 {/if}
-                                <input n:name="itemIngredientsFilter_Id"class="hidden readolny ajax"
-                                       id="itemIngredientsFilter_Id">
+                                <input n:name="itemIngredientsFilter_Id" class="ajax itemIngredientsFilter_Id" id="itemIngredientsFilter_Id_select">
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <label for="priceFilter" class="form-label">Řadit</label>
+                            <label for="sortFilter" class="form-label">Řadit</label>
                             <select n:name="sort" class="form-select" id="sortFilter">
                                 <option selected>Všechny</option>
-
                             </select>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </form>
     {if $user->isLoggedIn()}
-    {include "sidebar.latte"}
-{/if}
+        {include "sidebar.latte"}
+    {/if}
+
 {include "loginDialog.latte"}
 
-<div n:snippet="foods" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-    {foreach $foods as $food}
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="{$basePath . "/uploads/" . $food->image}" class="card-img-top" alt="..."
-                     style="object-fit: cover; height: 200px;">
-                <div class="card-body">
-                    <h5 class="card-title">{$food->name}</h5>
-                    <p class="card-text">{$food->description}</p>
-                    <div class="mb-3">
-                        {if count($alergens) > 0}
-                            {foreach $food->ingredients as $key => $alergen}
-                                <span class="badge {$spanClass[$key]}"
-                                      data-id="{$alergen->id}">{$alergen->name}</span>
-                            {/foreach}
-
+    <div n:snippet="foods" class="container mt-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {foreach $foods as $food}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{$basePath . "/uploads/" . $food->image}" class="card-img-top" alt="..." style="object-fit: cover; height: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{$food->name}</h5>
+                            <p class="card-text">{$food->description}</p>
+                            <div class="mb-3">
+                                {if count($alergens) > 0}
+                                    {foreach $food->ingredients as $key => $alergen}
+                                        <span class="badge {$spanClass[$key]}" data-id="{$alergen->id}">{$alergen->name}</span>
+                                    {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        {if $user->isLoggedIn()}
+                            <a n:href="delete! $food->id" class="ajax" data-naja-history="replace">
+                                <div class="delete-cross">&#10006;</div>
+                            </a>
                         {/if}
                     </div>
                 </div>
-                {if $user->isLoggedIn()}
-                    <a n:href="delete! $food->id" class="ajax" data-naja-history="replace">
-                        <div class="delete-cross">&#10006;</div>
-                    </a>
-                {/if}
-            </div>
+            {/foreach}
         </div>
+    </div>
 
 
-    {/foreach}
-
-
-</div>
-
-<!-- Pagination -->
+    <!-- Pagination -->
 
 <nav n:snippet="pages" aria-label="Page navigation">
     <ul class="pagination justify-content-center mt-4">
@@ -227,6 +220,7 @@
             }
 
 
+
         });
 
         $('.filter').click(function () {
@@ -254,33 +248,8 @@
 
 
         });
-        /*
-                $('#categoryFilter').change(function() {
 
-                    $('form[id="frm-filterForm"]').submit();
-                });
-
-                $('#itemIngredientsFilter_Id').change(function() {
-
-                    $('form[id="frm-filterForm"]').submit();
-                });
-                $('#sortFilter').change(function() {
-
-                    $('form[id="frm-filterForm"]').submit();
-                });*/
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.forms.filterForm;
-        const input = form.elements.name;
 
-        // Inicializace Naja
-        const naja = new Naja();
-        naja.initialize();
-
-        // Při změně hodnoty input pole odeslat celý formulář pomocí AJAX
-        input.addEventListener('change', function () {
-            naja.makeRequest('POST', form.action, new FormData(form));
-        });
-    });
 </script>

@@ -123,7 +123,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
             $this->redirect('this'); // nebo jiná stránka po úspěšném přihlášení
         } catch (Nette\Security\AuthenticationException $e) {
             $this->flashMessage('Neplatné přihlašovací údaje.', 'error');
-            $this->redirect('this');
+            $this->redirect('homepage:default');
         }
     }
 
@@ -166,9 +166,6 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     }
 
 
-
-
-
     public function readDataWithFilter($values):void
     {
         if(isset($values)){
@@ -190,7 +187,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         $body['name'] = is_null($parameters['name'])?"":$parameters['name'];
         ($parameters['categoryFilter']!="empty")?$body['categoryId'] = $parameters['categoryFilter']:null;
         $body['ingredientIdsExclude'] = $parser;
-        $body['order'] = is_null($parameters['sort'])?"":$parameters['sort'];
+        $body['orderBy'] = is_null($parameters['sort'])?"":$parameters['sort'];
         }
 
 
@@ -275,8 +272,10 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
         $sort = [
             "" => "",
-            "name" => "name",
-            "price" => "price",
+            "name:asc" => "name vzestupně ",
+            "price:asc" => "price vzestupně",
+            "name:desc" => "name sestupně",
+            "price:desc" => "price sestupně",
         ];
 
         $request = \Httpful\Request::get('http://localhost:9000/api/v1/appCategory')
