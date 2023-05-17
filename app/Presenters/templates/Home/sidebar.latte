@@ -11,11 +11,13 @@
             </div>
             <div class="mb-3">
                 <label for="item-description" class="form-label">Item Description</label>
-                <textarea class="form-control" id="item-description" n:name="itemDescription" rows="3" required></textarea>
+                <textarea class="form-control" id="item-description" n:name="itemDescription" rows="3"
+                          required></textarea>
             </div>
             <div class="mb-3">
                 <label for="item-price" class="form-label">Price</label>
-                <input type="number" class="form-control" id="item-price" n:name="itemPrice" min="0" step="0.01" required>
+                <input type="number" class="form-control" id="item-price" n:name="itemPrice" min="0" step="0.01"
+                       required>
             </div>
             <div class="mb-3">
                 <label for="item-category" class="form-label">Category</label>
@@ -28,18 +30,19 @@
             </div>
             <div class="mb-3">
                 <label for="item-ingredients" class="form-label">Ingredients (separated by commas)</label>
-                <input type="text" class="form-control readolny" id="item-ingredients" n:name="itemIngredients" required>
+                <input type="text" class="form-control readolny" id="item-ingredients" n:name="itemIngredients"
+                       required>
             </div>
 
             <input n:name=itemIngredients_Id class="hidden readolny">
-        <div class="mb-3">
+            <div class="mb-3">
+                {if count($alergens) > 0}
+                    {foreach $alergens as $key => $alergen}
+                        <span class="badge {$spanClass[$key]} alergen" data-id="{$alergen->id}">{$alergen->name}</span>
+                    {/foreach}
 
-            {foreach $alergens as $key => $alergen}
-                <span class="badge {$spanClass[$key]}" data-id="{$alergen->id}">{$alergen->name}</span>
-            {/foreach}
-
-
-        </div>
+                {/if}
+            </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

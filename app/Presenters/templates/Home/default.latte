@@ -3,134 +3,284 @@
 {block content}
 
 <style>
-	body{
-		background-color: whitesmoke;
-	}
-	#custom-search {
-		border-color: whitesmoke;
-		background-color: whitesmoke;
-		border-radius: 0;
-		font-size: 1.2rem;
-	}
-	#custom-search:focus {
-		border-color: whitesmoke;
-		box-shadow: none;
-	}
+    body {
+        background-color: whitesmoke;
+    }
 
-	 .disabled {
+    #custom-search {
+        border-color: whitesmoke;
+        background-color: whitesmoke;
+        border-radius: 0;
+        font-size: 1.2rem;
+    }
 
-		 opacity: 0.3;
-	 }
-.readolny{
-	opacity: 0.6;
-	pointer-events: none;
-	}
-	.delete-cross {
-		position: absolute;
-		top: 0;
-		right: 0;
-		background-color: whitesmoke;
-		padding: 5px;
-		font-size: 15px;
-		cursor: pointer;
-		transition: all 0.3s;
-	}
-	.delete-cross:hover{
-		background-color: whitesmoke;
-		padding: 5px;
-		font-size: 20px;
-		cursor: pointer;
-		background-color: #dc3545;
-	}
+    #custom-search:focus {
+        border-color: whitesmoke;
+        box-shadow: none;
+    }
+
+    .disabled {
+
+        opacity: 0.3;
+    }
+
+    .readolny {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .delete-cross {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: whitesmoke;
+        padding: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .delete-cross:hover {
+        background-color: whitesmoke;
+        padding: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #dc3545;
+    }
 
 </style>
-{include "nav.latte"}
 
+
+<form n:name="filterForm" class="ajax">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="height: 80px;">
+        <div class="container-fluid">
+            <div class="navbar-collapse collapse w-100 order-1 order-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Iskam</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-2">
+                <div class="d-flex w-100 justify-content-center">
+                    <div class="input-group">
+                        <input n:name="name" class="form-control form-control-lg" type="search" placeholder="Search"
+                                             aria-label="Search"
+                                             id="custom-search">
+                    </div>
+                </div>
+                <button type="submit">odelsat</button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 order-lg-2">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        {if $user->isLoggedIn()}
+                            <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas"
+                                    data-bs-target="#sidebar">Add new
+                            </button>
+                            <a href="{link Home:out}" class="">Odhlásit se</a>
+                        {else}
+                            <button type="button" class="btn btn-link" id="login-button" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Login
+                            </button>
+                        {/if}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <!-- Page content -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-light p-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="categoryFilter" class="form-label">Kategorie</label>
+                            <select n:name="categoryFilter" class="form-select ajax" id="categoryFilter">
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="priceFilter" class="form-label">Alergeny</label>
+                            <div class="mb-3">
+                                {if count($alergens) > 0}
+                                    {foreach $alergens as $key => $alergen}
+                                        <span class="badge {$spanClass[$key]} filter ajax"
+                                              data-id="{$alergen->id}">{$alergen->name}</span>
+                                    {/foreach}
+
+                                {/if}
+                                <input n:name="itemIngredientsFilter_Id"class="hidden readolny ajax"
+                                       id="itemIngredientsFilter_Id">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="priceFilter" class="form-label">Řadit</label>
+                            <select n:name="sort" class="form-select" id="sortFilter">
+                                <option selected>Všechny</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>
+    {if $user->isLoggedIn()}
+    {include "sidebar.latte"}
+{/if}
 {include "loginDialog.latte"}
 
+<div n:snippet="foods" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-<!-- Page content -->
-<div class="container mt-4">
-	{snippet "foods"}
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {foreach $foods as $food}
 
-{foreach $foods as $food}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{$basePath . "/uploads/" . $food->image}" class="card-img-top" alt="..."
+                     style="object-fit: cover; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{$food->name}</h5>
+                    <p class="card-text">{$food->description}</p>
+                    <div class="mb-3">
+                        {if count($alergens) > 0}
+                            {foreach $food->ingredients as $key => $alergen}
+                                <span class="badge {$spanClass[$key]}"
+                                      data-id="{$alergen->id}">{$alergen->name}</span>
+                            {/foreach}
 
-	<div class="col">
-		<div class="card h-100">
-			<img src="{$basePath."/uploads/".$food->image}" class="card-img-top" alt="..." style="object-fit: cover; height: 200px;">
-			<div class="card-body">
-				<h5 class="card-title">{$food->name}</h5>
-				<p class="card-text">{$food->description}</p>
-			</div>
-			{if $user->isLoggedIn()}
-				<a n:href="delete! $food->id" class="ajax" data-naja-history="replace"><div class="delete-cross">&#10006;</div></a>
-			{/if}
-		</div>
-	</div>
+                        {/if}
+                    </div>
+                </div>
+                {if $user->isLoggedIn()}
+                    <a n:href="delete! $food->id" class="ajax" data-naja-history="replace">
+                        <div class="delete-cross">&#10006;</div>
+                    </a>
+                {/if}
+            </div>
+        </div>
 
 
-{/foreach}
+    {/foreach}
 
-		{/snippet}
-	</div>
-	<!-- Pagination -->
 
-	<nav aria-label="Page navigation">
-		<ul class="pagination justify-content-center mt-4">
-			<li class="page-item disabled">
-				<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-			</li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item">
-				<a class="page-link" href="#">Next</a>
-			</li>
-		</ul>
-	</nav>
+</div>
+
+<!-- Pagination -->
+
+<nav n:snippet="pages" aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-4">
+        <li class="page-item {($actualPage==1)?"disabled"}">
+            <a class="page-link ajax" n:href="read! $actualPage-1,'name' => $presenter->getParameter('name'),'categoryFilter' => $presenter->getParameter('categoryFilter'),'itemIngredientsFilter_Id' => $presenter->getParameter('itemIngredientsFilter_Id'),'sort' => $presenter->getParameter('sort')" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        {for $i = 1; $i < $pages+1; $i++ }
+
+            <li class="page-item {($i==$actualPage)?"active"}"><a class="page-link ajax" n:href="read! $i,'name' => $presenter->getParameter('name'),'categoryFilter' => $presenter->getParameter('categoryFilter'),'itemIngredientsFilter_Id' => $presenter->getParameter('itemIngredientsFilter_Id'),'sort' => $presenter->getParameter('sort')">{$i}</a></li>
+        {/for}
+
+        <li class="page-item">
+            <a class="page-link {($actualPage==$pages)?"disabled"} ajax" n:href="read! $actualPage+1,'name' => $presenter->getParameter('name'),'categoryFilter' => $presenter->getParameter('categoryFilter'),'itemIngredientsFilter_Id' => $presenter->getParameter('itemIngredientsFilter_Id'),'sort' => $presenter->getParameter('sort')">Next</a>
+        </li>
+    </ul>
+</nav>
 </div>
 
 
 <script>
 
-	$(document).ready(function () {
+    $(document).ready(function () {
 
 
-		$('.badge').click(function () {
-			let text = $(this).text();
-			let input = $('input[name="itemIngredients"]');
-			let inputHidden = $('input[name="itemIngredients_Id"]');
-			let data = $(this).attr("data-id");
+        $('.alergen').click(function () {
+            let text = $(this).text();
+            let input = $('input[name="itemIngredients"]');
+            let inputHidden = $('input[name="itemIngredients_Id"]');
+            let data = $(this).attr("data-id");
 
-			if ($(this).hasClass('disabled')) {
+            if ($(this).hasClass('disabled')) {
 
-				let arr = input.val().split(',');
+                let arr = input.val().split(',');
 
-				arr = $.grep(arr, function (value) {
-					return value !== text;
-				});
-
-
-				let dataHidden = inputHidden.val().split(';');
-
-				dataHidden = $.grep(dataHidden, function (value) {
-					return value !== data;
-				});
-
-				input.val(arr.join(','))
-				inputHidden.val(dataHidden.join(';'))
-
-				$(this).removeClass('disabled');
-			} else {
-
-				input.val(input.val() + text + ",");
-
-				inputHidden.val(inputHidden.val() + data + ";");
-				$(this).addClass("disabled");
-			}
+                arr = $.grep(arr, function (value) {
+                    return value !== text;
+                });
 
 
-		});
-	});
+                let dataHidden = inputHidden.val().split(';');
+
+                dataHidden = $.grep(dataHidden, function (value) {
+                    return value !== data;
+                });
+
+                input.val(arr.join(','))
+                inputHidden.val(dataHidden.join(';'))
+
+                $(this).removeClass('disabled');
+            } else {
+
+                input.val(input.val() + text + ",");
+
+                inputHidden.val(inputHidden.val() + data + ";");
+                $(this).addClass("disabled");
+            }
+
+
+        });
+
+        $('.filter').click(function () {
+            let inputHidden = $('input[name="itemIngredientsFilter_Id"]');
+            let data = $(this).attr("data-id");
+
+            if ($(this).hasClass('disabled')) {
+
+
+                let dataHidden = inputHidden.val().split(';');
+
+                dataHidden = $.grep(dataHidden, function (value) {
+                    return value !== data;
+                });
+
+                inputHidden.val(dataHidden.join(';'))
+
+                $(this).removeClass('disabled');
+            } else {
+
+
+                inputHidden.val(inputHidden.val() + data + ";");
+                $(this).addClass("disabled");
+            }
+
+
+        });
+        /*
+                $('#categoryFilter').change(function() {
+
+                    $('form[id="frm-filterForm"]').submit();
+                });
+
+                $('#itemIngredientsFilter_Id').change(function() {
+
+                    $('form[id="frm-filterForm"]').submit();
+                });
+                $('#sortFilter').change(function() {
+
+                    $('form[id="frm-filterForm"]').submit();
+                });*/
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.forms.filterForm;
+        const input = form.elements.name;
+
+        // Inicializace Naja
+        const naja = new Naja();
+        naja.initialize();
+
+        // Při změně hodnoty input pole odeslat celý formulář pomocí AJAX
+        input.addEventListener('change', function () {
+            naja.makeRequest('POST', form.action, new FormData(form));
+        });
+    });
 </script>
