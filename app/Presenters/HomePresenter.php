@@ -76,15 +76,19 @@ final class HomePresenter extends Nette\Application\UI\Presenter
                     $body['image'] = $fileUpload->name;
                     $body['ingredients'] = $parser;
 
+if(isset($values['id'])){
+    $request = \Httpful\Request::put('http://localhost:9000/api/v1/appFood/'.$values['id']);
+}else{
+    $request = \Httpful\Request::post('http://localhost:9000/api/v1/appFood');
+}
 
-
-                    $request = \Httpful\Request::post('http://localhost:9000/api/v1/appFood')
+                    $request
                         ->addHeader('Authorization',"Bearer ".$this->user->id)
                         ->sendsJson()
                         ->body(json_encode($body))
                         ->send();
 
-                    $this->flashMessage($request->body);
+                    $this->flashMessage($request);
                 }else{
                     $this->flashMessage("soubor se nepodařilo uložit");
                 }
@@ -163,6 +167,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
       /*  $this->payload->postGet = true;
         $this->payload->url = $this->link('this');*/
+
     }
 
 
@@ -198,14 +203,23 @@ final class HomePresenter extends Nette\Application\UI\Presenter
             ->body(empty($body)?"{}":json_encode($body))
             ->send();
 
+if($request->hasErrors()){
+    $this->template->foods = [];
+    $this->template->foods = 0;
+    $this->template->pages = 0;
+}else{
+
 
         $this->template->foods = $request->body;
         $this->template->pages = $request->headers['X-Total-Pages'];
         $this->template->actualPage = $page;
 
+
+
+}
         $this->redrawControl('foods');
         $this->redrawControl("pages");
-
+        $this->redrawControl("script");
     }
 
     protected function createComponentLoginForm(): Form
@@ -258,6 +272,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         $form->addText('itemIngredients', 'Ingredients (separated by commas)');
 
         $form->addHidden('itemIngredients_Id', '');
+        $form->addHidden('id', '');
 
         $form->addSubmit('submit', 'Submit');
 

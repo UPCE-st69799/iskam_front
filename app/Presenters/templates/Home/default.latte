@@ -6,9 +6,6 @@
     body {
         background-color: whitesmoke;
     }
-.white{
-    background-color: white;
-}
     #custom-search {
         border-color: whitesmoke;
         background-color: whitesmoke;
@@ -50,6 +47,24 @@
         background-color: #dc3545;
     }
 
+    .edit-pencil{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: whitesmoke;
+        padding: 5px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .edit-pencil:hover{
+        background-color: whitesmoke;
+        padding: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #3599dc;
+    }
 </style>
 
 
@@ -96,7 +111,7 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="bg-light p-3">
+                <div class="bg-white p-3">
                     <div class="row">
                         <div class="col-md-4">
                             <label for="categoryFilter" class="form-label">Kategorie</label>
@@ -108,7 +123,7 @@
                             <div class="mb-3">
                                 {if count($alergens) > 0}
                                     {foreach $alergens as $key => $alergen}
-                                        <div class="badge {$spanClass[$key]} filter ajax" data-id="{$alergen->id}">{$alergen->name}</div>
+                                        <div id="container" class="badge {$spanClass[$key]} filter ajax" data-id="{$alergen->id}">{$alergen->name}</div>
                                     {/foreach}
                                 {/if}
                                 <input n:name="itemIngredientsFilter_Id" class="ajax itemIngredientsFilter_Id" id="itemIngredientsFilter_Id_select">
@@ -117,7 +132,6 @@
                         <div class="col-md-4">
                             <label for="sortFilter" class="form-label">Řadit</label>
                             <select n:name="sort" class="form-select" id="sortFilter">
-                                <option selected>Všechny</option>
                             </select>
                         </div>
                     </div>
@@ -134,13 +148,14 @@
 
     <div n:snippet="foods" class="container mt-4">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {foreach $foods as $food}
+            {foreach $foods as $keyes => $food}
                 <div class="col">
                     <div class="card h-100">
                         <img src="{$basePath . "/uploads/" . $food->image}" class="card-img-top" alt="..." style="object-fit: cover; height: 200px;">
                         <div class="card-body">
                             <h5 class="card-title">{$food->name}</h5>
                             <p class="card-text">{$food->description}</p>
+                            <p class="card-text">Cena: {$food->price} Kč</p>
                             <div class="mb-3">
                                 {if count($alergens) > 0}
                                     {foreach $food->ingredients as $key => $alergen}
@@ -153,14 +168,17 @@
                             <a n:href="delete! $food->id" class="ajax" data-naja-history="replace">
                                 <div class="delete-cross">&#10006;</div>
                             </a>
+                                <div class="edit-pencil" data-key="{$keyes}" data-bs-toggle="modal" data-bs-target="#editModal"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg></div>
                         {/if}
                     </div>
                 </div>
             {/foreach}
         </div>
     </div>
-
-
+<!-- modal -->
+{include "editModal.latte"}
     <!-- Pagination -->
 
 <nav n:snippet="pages" aria-label="Page navigation">
@@ -181,7 +199,7 @@
 </div>
 
 
-<script>
+<script n:snippet="script">
 
     $(document).ready(function () {
 
@@ -218,9 +236,6 @@
                 inputHidden.val(inputHidden.val() + data + ";");
                 $(this).addClass("disabled");
             }
-
-
-
         });
 
         $('.filter').click(function () {
@@ -228,20 +243,14 @@
             let data = $(this).attr("data-id");
 
             if ($(this).hasClass('disabled')) {
-
-
                 let dataHidden = inputHidden.val().split(';');
-
                 dataHidden = $.grep(dataHidden, function (value) {
                     return value !== data;
                 });
-
                 inputHidden.val(dataHidden.join(';'))
 
                 $(this).removeClass('disabled');
             } else {
-
-
                 inputHidden.val(inputHidden.val() + data + ";");
                 $(this).addClass("disabled");
             }
@@ -250,6 +259,17 @@
         });
 
     });
+
+    $('.edit-pencil').click(function() {
+        let dataKey = $(this).data('key');
+        $('#item-name-edit').val(foods[dataKey].name);
+        $('#item-description-edit').val(foods[dataKey].description);
+        $('#item-price-edit').val(foods[dataKey].price);
+        $('#item-category-edit').val(foods[dataKey].category.id);
+        $('#hidden-edit').val(foods[dataKey].id);
+
+    });
+
 
 
 </script>

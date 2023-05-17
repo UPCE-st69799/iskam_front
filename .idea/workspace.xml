@@ -1,313 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d944423f-9ab9-4f6d-b593-2743dae7b143" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/AsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/AwaitValue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/OverloadYield.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/applyDecoratedDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/applyDecs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/applyDecs2203.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/applyDecs2203R.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/applyDecs2301.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/arrayLikeToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/arrayWithHoles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/assertThisInitialized.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/asyncGeneratorDelegate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/asyncIterator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/asyncToGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/awaitAsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/checkInRHS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/checkPrivateRedeclaration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classApplyDescriptorDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classApplyDescriptorGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classApplyDescriptorSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classCallCheck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classCheckPrivateStaticAccess.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classCheckPrivateStaticFieldDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classExtractFieldDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classNameTDZError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldInitSpec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldLooseBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldLooseKey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateFieldSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateMethodGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateMethodInitSpec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classPrivateMethodSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classStaticPrivateFieldDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classStaticPrivateFieldSpecGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classStaticPrivateFieldSpecSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classStaticPrivateMethodGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/classStaticPrivateMethodSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/construct.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/createClass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/createForOfIteratorHelper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/createForOfIteratorHelperLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/createSuper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/decorate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/defaults.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/defineAccessor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/defineEnumerableProperties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/defineProperty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/AsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/AwaitValue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/OverloadYield.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/applyDecoratedDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/applyDecs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/applyDecs2203.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/applyDecs2203R.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/applyDecs2301.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/asyncGeneratorDelegate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/asyncIterator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/awaitAsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/checkInRHS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/checkPrivateRedeclaration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classApplyDescriptorDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classApplyDescriptorGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classApplyDescriptorSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classCallCheck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classCheckPrivateStaticAccess.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classCheckPrivateStaticFieldDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classExtractFieldDescriptor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classNameTDZError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldInitSpec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateFieldSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateMethodGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateMethodInitSpec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classPrivateMethodSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classStaticPrivateFieldDestructureSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classStaticPrivateFieldSpecGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classStaticPrivateFieldSpecSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classStaticPrivateMethodGet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/classStaticPrivateMethodSet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/construct.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/createClass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelperLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/createSuper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/decorate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/defaults.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/defineAccessor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/defineEnumerableProperties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/defineProperty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/extends.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/get.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/identity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/inherits.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/initializerDefineProperty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/initializerWarningHelper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/instanceof.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/interopRequireDefault.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/interopRequireWildcard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/isNativeFunction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/isNativeReflectConstruct.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/iterableToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/iterableToArrayLimitLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/jsx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/maybeArrayLike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/newArrowCheck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/objectDestructuringEmpty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/objectSpread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/objectSpread2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/readOnlyError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/skipFirstGeneratorNext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/slicedToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/slicedToArrayLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/superPropBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteralLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/tdz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/temporalRef.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/temporalUndefined.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/toArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/toPrimitive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/toPropertyKey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/typeof.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/wrapAsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/wrapNativeSuper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/wrapRegExp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/esm/writeOnlyError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/extends.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/get.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/getPrototypeOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/identity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/inherits.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/inheritsLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/initializerDefineProperty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/initializerWarningHelper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/instanceof.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/interopRequireDefault.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/interopRequireWildcard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/isNativeFunction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/iterableToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/iterableToArrayLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/iterableToArrayLimitLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/jsx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/maybeArrayLike.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/newArrowCheck.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/nonIterableRest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/nonIterableSpread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/objectDestructuringEmpty.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/objectSpread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/objectSpread2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/objectWithoutProperties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/readOnlyError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/regeneratorRuntime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/setPrototypeOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/skipFirstGeneratorNext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/slicedToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/slicedToArrayLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/superPropBase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/taggedTemplateLiteralLoose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/tdz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/temporalRef.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/temporalUndefined.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/toArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/toConsumableArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/toPrimitive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/toPropertyKey.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/typeof.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/wrapAsyncGenerator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/wrapNativeSuper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/wrapRegExp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/helpers/writeOnlyError.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/runtime/regenerator/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/BACKERS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.js.asc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.min.js.asc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/Naja.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/FormsHandler.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/HistoryHandler.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/RedirectHandler.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/ScriptLoader.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/SnippetCache.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/SnippetHandler.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/core/UIHandler.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/extensions/AbortExtension.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/extensions/UniqueExtension.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/index.esm.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/index.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/index.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/dist/utils.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/.nojekyll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/_sidebar.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/dispatch.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/extensions-custom.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/extensions-default.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/forms.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/history.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/quick-start.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/redirection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/scripts.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/snippets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/1.x/ui-binding.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/CNAME" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/_coverpage.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/_navbar.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/_sidebar.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/dispatch.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/events.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/extensibility.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/extensions-custom.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/extensions-default.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/extensions-integration.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/forms.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/00-introduction.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/01-install-setup-naja.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/02-add-redraw-snippets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/03-fix-basket.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/04-fix-reviews-widget.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/05-fix-category-filter.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/06-hook-into-request-lifecycle.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/07-extensions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/guide/08-closing-thoughts.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/history.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/initialization.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/installation.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/logo_dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/quick-start.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/redirection.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/snippet-cache.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/snippets.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/support.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/ui-binding.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/docs/upgrade-from-1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/Naja.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/FormsHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/HistoryHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/RedirectHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/ScriptLoader.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/SnippetCache.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/SnippetHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/core/UIHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/extensions/AbortExtension.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/extensions/UniqueExtension.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/index.esm.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/src/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/naja/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/path.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/regenerator-runtime/runtime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/nav.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,12 +96,23 @@
       <workItem from="1683835384901" duration="5769000" />
       <workItem from="1684235881415" duration="27750000" />
       <workItem from="1684312688474" duration="1332000" />
-      <workItem from="1684319961268" duration="31957000" />
+      <workItem from="1684319961268" duration="41148000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1684247529105">
@@ -399,6 +127,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1684247344445" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1684356365265">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1684356365265" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1684332535476">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

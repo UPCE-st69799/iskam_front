@@ -31,13 +31,32 @@
 <script src="https://unpkg.com/naja@2/dist/Naja.min.js"></script>
 <script>
       naja.initialize();
-
+	  var foods = {$foods};
 	document.addEventListener('DOMContentLoaded', function () {
 		const form = document.forms.filterForm;
 		const select = document.getElementById('categoryFilter');
 		const sort = document.getElementById('sortFilter');
 		const search = document.getElementById('custom-search');
 		const hidden = document.getElementById('itemIngredientsFilter_Id_select');
+
+		const filter = document.getElementsByClassName('filter');
+
+
+		const container = document.querySelector('.container');
+
+		container.addEventListener('click', function(e) {
+			if (e.target.classList.contains('filter')) {
+				console.log('Kliknuto na element s třídou .filter');
+				const form = e.target.closest('form'); // Získání nejbližšího rodičovského formuláře
+				if (form) {
+					const action = form.getAttribute('action');
+					const method = form.getAttribute('method') || 'POST';
+					const formData = new FormData(form);
+					naja.makeRequest(method, action, formData);
+				}
+			}
+		});
+
 
 		// Při změně hodnoty selectu odeslat formulář pomocí AJAX
 		select.addEventListener('change', function () {
@@ -57,6 +76,13 @@
 				naja.uiHandler.submitForm(event.target.form);
 		});
 
+
+		naja.addEventListener('complete', function (event) {
+			console.log('AJAX request completed.');
+			console.log('Response:', event.response);
+
+
+		});
 
 	});
 
