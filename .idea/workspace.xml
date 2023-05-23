@@ -24,7 +24,11 @@
       <change beforePath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/nav.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/loginDialog.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/loginDialog.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/sidebar.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/sidebar.latte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/security/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/security/MyAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/common.neon" beforeDir="false" afterPath="$PROJECT_DIR$/config/common.neon" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +77,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../kniha-jizd" />
@@ -96,7 +101,11 @@
       <workItem from="1683835384901" duration="5769000" />
       <workItem from="1684235881415" duration="27750000" />
       <workItem from="1684312688474" duration="1332000" />
-      <workItem from="1684319961268" duration="41148000" />
+      <workItem from="1684319961268" duration="41540000" />
+      <workItem from="1684519013812" duration="1251000" />
+      <workItem from="1684783591240" duration="9368000" />
+      <workItem from="1684832992614" duration="594000" />
+      <workItem from="1684837177656" duration="18048000" />
     </task>
     <servers />
   </component>
@@ -113,16 +122,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1684863524700">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1684863524700" />
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1684247529105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1684247529105" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1684344342559">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1684864829157">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1684344342559" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1684864829157" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1684863574996">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1684863574996" />
     <state x="709" y="243" key="NewPhpClassDialog" timestamp="1684247344445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

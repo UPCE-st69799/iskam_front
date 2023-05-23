@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <!-- Formulář pro editaci -->
-                <form n:name="addFoodForm" class="editForm-data" data-naja-history="replace">
+                <form n:name="editFoodForm" class="editForm-data ajax" data-naja-history="replace">
                     <div class="mb-3">
                         <label for="item-name" class="form-label">Item Name</label>
                         <input type="text" class="form-control" id="item-name-edit" n:name="itemName" required>
@@ -19,17 +19,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="item-price" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="item-price-edit" n:name="itemPrice" min="0" step="0.01"
+                        <input type="number" class="form-control" id="item-price-edit" n:name="itemPrice" min="0"
+                               step="0.01"
                                required>
                     </div>
                     <div class="mb-3">
                         <label for="item-category" class="form-label">Category</label>
-                        <select type="number" class="form-control" id="item-category-edit" n:name="itemCategory" required>
+                        <select type="number" class="form-control" id="item-category-edit" n:name="itemCategory"
+                                required>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="item-image" class="form-label">Image File</label>
-                        <input type="file" class="form-control" id="item-image" n:name="itemImage" accept="image/*" required>
+                        <input type="file" class="form-control" id="item-image" n:name="itemImage" accept="image/*"
+                               required>
                     </div>
                     <div class="mb-3">
                         <label for="item-ingredients" class="form-label">Ingredients (separated by commas)</label>
@@ -37,12 +40,13 @@
                                required>
                     </div>
 
-                    <input n:name=itemIngredients_Id class="hidden readolny">
+                    <input n:name=itemIngredients_Id class="hidden readolny ingredients">
                     <input n:name=id class="hidden readolny" id="hidden-edit">
-                    <div class="mb-3">
+                    <div class="mb-3 alergenEdit alergenList">
                         {if count($alergens) > 0}
                             {foreach $alergens as $key => $alergen}
-                                <span class="badge {$spanClass[$key]} alergen" data-id="{$alergen->id}">{$alergen->name}</span>
+                                <span class="badge {$spanClass[$key]} alergen"
+                                      data-id="{$alergen->id}">{$alergen->name}</span>
                             {/foreach}
 
                         {/if}
@@ -50,7 +54,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zavřít</button>
-                        <button n:name="submit" type="submit" class="btn btn-primary">Uložit</button>
+                        <button n:name="submit" type="submit" class="btn btn-primary save">Uložit</button>
                     </div>
                 </form>
             </div>

@@ -2,10 +2,8 @@
 
 namespace App\Presenters\templates\security;
 
-use Nette;
 use Nette\Security\Authenticator;
 use Nette\Security\AuthenticationException;
-use Nette\Security\IIdentity;
 use Nette\Security\SimpleIdentity;
 
 class MyAuthenticator implements Authenticator

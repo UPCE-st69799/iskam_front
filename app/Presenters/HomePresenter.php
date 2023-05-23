@@ -8,12 +8,12 @@ use App\Presenters\templates\security\MyAuthenticator;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Http\FileUpload;
-use function Tester\notNull;
 
 
 final class HomePresenter extends Nette\Application\UI\Presenter
 {
 
+    public $api;
     private $authenticator;
 
     public function __construct(MyAuthenticator $authenticator)
@@ -21,15 +21,33 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         $this->authenticator = $authenticator;
     }
 
-    public function renderDefault():void{
-        $alergen = \Httpful\Request::get('http://localhost:9000/api/v1/ingredients')
-           // ->addHeader('Authorization',"Bearer ".$this->user->id)
-            ->send();
-        $classis=[] ;
-        $pocetAlergenu=0;
+    function setApi($api)
+    {
+        $this->api = $api;
+    }
 
-        if(!$alergen->hasErrors())
-        $pocetAlergenu = count($alergen->body);
+    public function beforeRender()
+    {
+        $this->redrawControl("flashMessages");
+    }
+
+    private function getUploadPath(): string
+    {
+        return __DIR__ . '/../../www/uploads';
+    }
+
+
+    public function renderDefault(): void
+    {
+
+        $alergen = \Httpful\Request::get($this->api['url'] . 'ingredients')
+            // ->addHeader('Authorization',"Bearer ".$this->user->id)
+            ->send();
+        $classis = [];
+        $pocetAlergenu = 0;
+
+        if (!$alergen->hasErrors())
+            $pocetAlergenu = count($alergen->body);
 
         for ($i = 0; $i < $pocetAlergenu / 6; $i++) {
             $classis[] = "bg-primary";
@@ -51,7 +69,9 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         if (!isset($this->template->spanClass)) {
             $this->template->spanClass = $classis;
         }
-}
+
+
+    }
 
 
     public function processForm(Form $form, array $values): void
@@ -63,9 +83,9 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
             if ($fileUpload->isOk() && $fileUpload->isImage()) {
 
-                if($this->saveFile($fileUpload)){
+                if ($this->saveFile($fileUpload)) {
 
-                    $parser = !empty($values['itemIngredients_Id'])? explode(';', substr_replace($values['itemIngredients_Id'] ,"", -1)) : array();
+                    $parser = !empty($values['itemIngredients_Id']) ? explode(';', substr_replace($values['itemIngredients_Id'], "", -1)) : array();
 
 
                     $body = [];
@@ -76,37 +96,50 @@ final class HomePresenter extends Nette\Application\UI\Presenter
                     $body['image'] = $fileUpload->name;
                     $body['ingredients'] = $parser;
 
-if(isset($values['id'])){
-    $request = \Httpful\Request::put('http://localhost:9000/api/v1/appFood/'.$values['id']);
-}else{
-    $request = \Httpful\Request::post('http://localhost:9000/api/v1/appFood');
-}
+                    if (isset($values['id']) && ($values['id'] != "")) {
+                        $request = \Httpful\Request::put($this->api['url'] . 'appFood/' . $values['id']);
+                    } else {
+                        $request = \Httpful\Request::post($this->api['url'] . 'appFood');
+                    }
 
-                    $request
-                        ->addHeader('Authorization',"Bearer ".$this->user->id)
+                    $response = $request
+                        ->addHeader('Authorization', "Bearer " . $this->user->id)
                         ->sendsJson()
                         ->body(json_encode($body))
+                        ->expectsJson()
                         ->send();
 
-                    $this->flashMessage($request);
-                }else{
+
+                    if (!$response->hasErrors()) {
+
+                        $this->flashMessage("Pokrm byl úspěšně uložen", "success");
+
+
+                    } else {
+                        $this->flashMessage($response->body->message, "error");
+                        // $this->flashMessage($response->body);
+                        //  $this->flashMessage("Data se nepodařilo užloit", "error");
+                    }
+                    $this->redrawControl("flashMessages");
+                } else {
                     $this->flashMessage("soubor se nepodařilo uložit");
                 }
 
             }
         }
 
-        $request = \Httpful\Request::get('http://localhost:9000/api/v1/appFood')
+        $request = \Httpful\Request::get($this->api['url'] . 'appFood')
             ->expectsJson()
             ->send();
 
         $this->template->foods = $request->body;
         $this->template->pages = $request->headers['X-Total-Pages'];
-        $this->template->actualPage = $request->headers['X-Actual-Pages']+1;
+        $this->template->actualPage = $request->headers['X-Actual-Pages'] + 1;
         $this->redrawControl("foods");
         $this->redrawControl("pages");
-    }
+        $this->redrawControl("script");
 
+    }
 
 
     public function saveFile(FileUpload $file): bool
@@ -116,7 +149,7 @@ if(isset($values['id'])){
         $fileName = $file->name;
         $file->move($uploadPath . '/' . $fileName);
 
-        return file_exists($uploadPath."/".$fileName);
+        return file_exists($uploadPath . "/" . $fileName);
     }
 
     public function actionLogin(string $username, string $password): void
@@ -127,7 +160,7 @@ if(isset($values['id'])){
             $this->redirect('this'); // nebo jiná stránka po úspěšném přihlášení
         } catch (Nette\Security\AuthenticationException $e) {
             $this->flashMessage('Neplatné přihlašovací údaje.', 'error');
-            $this->redirect('homepage:default');
+            $this->redirect('this'); // nebo jiná stránka po úspěšném přihlášení
         }
     }
 
@@ -136,23 +169,19 @@ if(isset($values['id'])){
         $this->getUser()->logout();
         $this->redirect('home:default');
     }
-    private function getUploadPath(): string
-    {
-        return __DIR__ . '/../../www/uploads';
-    }
+
 
     public function handleDelete($id)
     {
-        $request = \Httpful\Request::delete('http://localhost:9000/api/v1/appFood/'.$id)
+        $request = \Httpful\Request::delete($this->api['url'] . 'appFood/' . $id)
             ->expectsJson()
             ->send();
-        $this->flashMessage($request->body);
+        $this->flashMessage("Jídlo úspěšně smazáno", "success");
 
         $this->redrawControl("foods");
         $this->payload->postGet = true;
         $this->payload->url = $this->link('this');
     }
-
 
 
     public function handleFilterFormSubmitted(Form $form, $values)
@@ -162,64 +191,69 @@ if(isset($values['id'])){
 
     }
 
-    public function handleRead(int $page){
+    public function handleRead(int $page)
+    {
         $this->readDataWithFilter(null);
-
-      /*  $this->payload->postGet = true;
-        $this->payload->url = $this->link('this');*/
-
     }
 
-
-    public function readDataWithFilter($values):void
+    public function handleEdit()
     {
-        if(isset($values)){
+        $id = $_POST['id'];
+
+        $request = \Httpful\Request::get($this->api['url'] . 'appFood/' . $id)
+            ->addHeader('Authorization', "Bearer " . $this->user->id)
+            ->send();
+        $this->sendJson($request->body);
+    }
+
+    public function readDataWithFilter($values): void
+    {
+
+        if (isset($values)) {
             $parameters = $values;
-        }else{
+        } else {
             $parameters = $this->getParameters();
         }
 
 
-        $parser = !empty($parameters['itemIngredientsFilter_Id'])? explode(';', substr_replace($parameters['itemIngredientsFilter_Id'] ,"", -1)) : array();
+        $parser = !empty($parameters['itemIngredientsFilter_Id']) ? explode(';', substr_replace($parameters['itemIngredientsFilter_Id'], "", -1)) : array();
 
         $page = 1;
-        if(isset($parameters['page'])){
+        if (isset($parameters['page'])) {
             $page = $parameters['page'];
         }
         $body = [];
-        if(isset($parameters['name'])||isset($parameters['categoryFilter'])||isset($parameters['itemIngredientsFilter_Id'])||isset($parameters['sort'])){
+        if (isset($parameters['name']) || isset($parameters['categoryFilter']) || isset($parameters['itemIngredientsFilter_Id']) || isset($parameters['sort'])) {
 
-        $body['name'] = is_null($parameters['name'])?"":$parameters['name'];
-        ($parameters['categoryFilter']!="empty")?$body['categoryId'] = $parameters['categoryFilter']:null;
-        $body['ingredientIdsExclude'] = $parser;
-        $body['orderBy'] = is_null($parameters['sort'])?"":$parameters['sort'];
+            $body['name'] = is_null($parameters['name']) ? "" : $parameters['name'];
+            ($parameters['categoryFilter'] != "empty") ? $body['categoryId'] = $parameters['categoryFilter'] : null;
+            $body['ingredientIdsExclude'] = $parser;
+            $body['orderBy'] = is_null($parameters['sort']) ? "" : $parameters['sort'];
         }
 
 
-
-        $request = \Httpful\Request::post('http://localhost:9000/api/v1/appFood/query?size=6&page='.$page-1)
-            ->addHeader('Authorization',"Bearer ".$this->user->id)
+        $request = \Httpful\Request::post($this->api['url'] . 'appFood/query?size=6&page=' . $page - 1)
+            ->addHeader('Authorization', "Bearer " . $this->user->id)
             ->sendsJson()
-            ->body(empty($body)?"{}":json_encode($body))
+            ->body(empty($body) ? "{}" : json_encode($body))
             ->send();
 
-if($request->hasErrors()){
-    $this->template->foods = [];
-    $this->template->foods = 0;
-    $this->template->pages = 0;
-}else{
+        if ($request->hasErrors()) {
+            $this->template->foods = [];
+            $this->template->foods = 0;
+            $this->template->pages = 0;
+        } else {
 
 
-        $this->template->foods = $request->body;
-        $this->template->pages = $request->headers['X-Total-Pages'];
-        $this->template->actualPage = $page;
+            $this->template->foods = $request->body;
+            $this->template->pages = $request->headers['X-Total-Pages'];
+            $this->template->actualPage = $page;
 
 
-
-}
+        }
         $this->redrawControl('foods');
         $this->redrawControl("pages");
-        $this->redrawControl("script");
+        //$this->redrawControl("script");
     }
 
     protected function createComponentLoginForm(): Form
@@ -243,14 +277,14 @@ if($request->hasErrors()){
 
     protected function createComponentAddFoodForm(): Form
     {
-        $request = \Httpful\Request::get('http://localhost:9000/api/v1/appCategory')
-            ->addHeader('Authorization',"Bearer ".$this->user->id)
+        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
+            ->addHeader('Authorization', "Bearer " . $this->user->id)
             ->send();
 
         $categories = [];
 
-        if(!$request->hasErrors()){
-            foreach ($request->body as $category){
+        if (!$request->hasErrors()) {
+            foreach ($request->body as $category) {
                 $categories[$category->id] = $category->name;
             }
 
@@ -264,7 +298,47 @@ if($request->hasErrors()){
             ->setRequired()
             ->addRule(Form::FLOAT, 'Zadejte číslo')
             ->addRule(Form::MIN, 'Price must be greater than 0', 0);
-        $form->addSelect('itemCategory', 'Category ID',$categories)
+        $form->addSelect('itemCategory', 'Category ID', $categories)
+            ->setRequired();
+        $form->addUpload('itemImage', 'Image File')
+            ->setRequired()
+            ->addRule(Form::MIME_TYPE, 'Please upload an image', ['image/jpeg', 'image/png']);
+        $form->addText('itemIngredients', 'Ingredients (separated by commas)');
+
+        $form->addHidden('itemIngredients_Id', '');
+        $form->addHidden('id', '');
+
+        $form->addSubmit('submit', 'Submit');
+
+        $form->onSuccess[] = [$this, 'processForm'];
+
+        return $form;
+    }
+
+    protected function createComponentEditFoodForm(): Form
+    {
+        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
+            ->addHeader('Authorization', "Bearer " . $this->user->id)
+            ->send();
+
+        $categories = [];
+
+        if (!$request->hasErrors()) {
+            foreach ($request->body as $category) {
+                $categories[$category->id] = $category->name;
+            }
+
+        }
+        $form = new Form();
+        $form->addText('itemName', 'Item Name')
+            ->setRequired();
+        $form->addTextArea('itemDescription', 'Item Description')
+            ->setRequired();
+        $form->addText('itemPrice', 'Price')
+            ->setRequired()
+            ->addRule(Form::FLOAT, 'Zadejte číslo')
+            ->addRule(Form::MIN, 'Price must be greater than 0', 0);
+        $form->addSelect('itemCategory', 'Category ID', $categories)
             ->setRequired();
         $form->addUpload('itemImage', 'Image File')
             ->setRequired()
@@ -293,7 +367,7 @@ if($request->hasErrors()){
             "price:desc" => "price sestupně",
         ];
 
-        $request = \Httpful\Request::get('http://localhost:9000/api/v1/appCategory')
+        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
             ->addHeader('Authorization', "Bearer " . $this->user->id)
             ->send();
 

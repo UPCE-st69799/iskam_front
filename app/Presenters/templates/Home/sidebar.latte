@@ -29,13 +29,14 @@
                 <input type="file" class="form-control" id="item-image" n:name="itemImage" accept="image/*" required>
             </div>
             <div class="mb-3">
-                <label for="item-ingredients" class="form-label">Ingredients (separated by commas)</label>
+                <label for="item-ingredients" class="form-label item-ingredients">Ingredients (separated by
+                    commas)</label>
                 <input type="text" class="form-control readolny" id="item-ingredients" n:name="itemIngredients"
                        required>
             </div>
 
-            <input n:name=itemIngredients_Id class="hidden readolny">
-            <div class="mb-3">
+            <input n:name=itemIngredients_Id class="hidden readolny ingredients">
+            <div class="mb-3 alergenList">
                 {if count($alergens) > 0}
                     {foreach $alergens as $key => $alergen}
                         <span class="badge {$spanClass[$key]} alergen" data-id="{$alergen->id}">{$alergen->name}</span>
@@ -44,7 +45,7 @@
                 {/if}
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary save">Uložit</button>
         </form>
 
     </div>
