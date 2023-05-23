@@ -20,14 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d944423f-9ab9-4f6d-b593-2743dae7b143" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Model/BaseManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/FileManager.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Model/FoodManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/editModal.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/loginDialog.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/loginDialog.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/sidebar.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/sidebar.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/security/MyAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/security/MyAuthenticator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/common.neon" beforeDir="false" afterPath="$PROJECT_DIR$/config/common.neon" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +78,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kniha-jizd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jira" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -105,7 +103,7 @@
       <workItem from="1684519013812" duration="1251000" />
       <workItem from="1684783591240" duration="9368000" />
       <workItem from="1684832992614" duration="594000" />
-      <workItem from="1684837177656" duration="18048000" />
+      <workItem from="1684837177656" duration="25533000" />
     </task>
     <servers />
   </component>
@@ -133,10 +131,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1684247529105" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1684864829157">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1684873745610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1684864829157" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1684873745610" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1684863574996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -145,6 +143,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="709" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1684247344445" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1684872164578">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1684872164578" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1684356365265">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

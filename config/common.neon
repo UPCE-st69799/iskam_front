@@ -23,3 +23,5 @@ services:
 		class: App\Presenters\HomePresenter
 		setup:
 			- setApi(%api%)
+	FoodManager: FoodManager(%parameters%)
+	FileManager: FileManager(%parameters%)
