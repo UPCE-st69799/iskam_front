@@ -12,15 +12,7 @@ use Nette\Http\FileUpload;
 
 final class HomePresenter extends Nette\Application\UI\Presenter
 {
-    /**
-     * Food manager
-     *
-     * @var \FoodManager
-     * @inject
-     */
-    public $foodManager;
 
-    public $issueManager;
     public $api;
     private $authenticator;
 
@@ -47,10 +39,15 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
     public function renderDefault(): void
     {
-        $alergen = $this->foodManager->getAlergens();
 
+        $alergen = \Httpful\Request::get($this->api['url'] . 'ingredients')
+            // ->addHeader('Authorization',"Bearer ".$this->user->id)
+            ->send();
         $classis = [];
-        $pocetAlergenu = count($alergen->body);
+        $pocetAlergenu = 0;
+
+        if (!$alergen->hasErrors())
+            $pocetAlergenu = count($alergen->body);
 
         for ($i = 0; $i < $pocetAlergenu / 6; $i++) {
             $classis[] = "bg-primary";
@@ -100,21 +97,32 @@ final class HomePresenter extends Nette\Application\UI\Presenter
                     $body['ingredients'] = $parser;
 
                     if (isset($values['id']) && ($values['id'] != "")) {
-
-                        $response = $this->foodManager->editFood($body, $values['id']);
+                        $request = \Httpful\Request::put($this->api['url'] . 'appFood/' . $values['id']);
                     } else {
-                        $response = $this->foodManager->createFood($body);
-
+                        $request = \Httpful\Request::post($this->api['url'] . 'appFood');
                     }
+
+                    $response = $request
+                        ->addHeader('Authorization', "Bearer " . $this->user->id)
+                        ->sendsJson()
+                        ->body(json_encode($body))
+                        ->expectsJson()
+                        ->send();
+
 
                     if (!$response->hasErrors()) {
-                        $this->flashMessage("Pokrm byl úspěšně uložen", "success");
-                    } else {
-                        $this->flashMessage("Data se nepodařilo užloit", "error");
-                    }
 
+                        $this->flashMessage("Pokrm byl úspěšně uložen", "success");
+
+
+                    } else {
+                        $this->flashMessage($response->body->message, "error");
+                        // $this->flashMessage($response->body);
+                        //  $this->flashMessage("Data se nepodařilo užloit", "error");
+                    }
+                    $this->redrawControl("flashMessages");
                 } else {
-                    $this->flashMessage("Soubor se nepodařilo uložit", "error");
+                    $this->flashMessage("soubor se nepodařilo uložit");
                 }
 
             }
