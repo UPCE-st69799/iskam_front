@@ -48,7 +48,8 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     public function renderDefault(): void
     {
         $alergen = $this->foodManager->getAlergens();
-
+        $request = $this->foodManager->getAllCategory();
+        $this->template->requestts=($request);
         $classis = [];
         $pocetAlergenu = count($alergen->body);
 
@@ -164,7 +165,12 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     {
         $request = $this->foodManager->deleteFoodById($id);
 
-        $this->flashMessage("Jídlo úspěšně smazáno", "success");
+        if($request->hasErrors()){
+            $this->flashMessage("Jídlo se nepodařilo smazat", "error");
+        }else{
+            $this->flashMessage("Jídlo úspěšně smazáno", "success");
+        }
+
 
         $this->redrawControl("foods");
         $this->payload->postGet = true;

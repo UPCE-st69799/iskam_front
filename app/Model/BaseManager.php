@@ -23,7 +23,7 @@ class BaseManager
     {
         $response = \Httpful\Request::$method($this->api . $url)
             ->sendsJson()
-            ->authenticateWith('Authorization',"Bearer ".$this->user->id);
+            ->addHeader('Authorization',"Bearer ".$this->user->id);
 
         switch ($method) {
             case 'post':
