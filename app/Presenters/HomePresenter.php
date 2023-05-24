@@ -84,40 +84,45 @@ final class HomePresenter extends Nette\Application\UI\Presenter
             /** @var FileUpload $fileUpload */
             $fileUpload = $values['itemImage'];
 
-            if ($fileUpload->isOk() && $fileUpload->isImage()) {
+
+            $parser = !empty($values['itemIngredients_Id']) ? explode(';', substr_replace($values['itemIngredients_Id'], "", -1)) : array();
+
+
+            $body = [];
+            $body['name'] = $values['itemName'];
+            $body['description'] = $values['itemDescription'];
+            $body['price'] = $values['itemPrice'];
+            $body['categoryId'] = $values["itemCategory"];
+            $body['ingredients'] = $parser;
+
+            $error = false;
+            if (($fileUpload->isOk() && $fileUpload->isImage())) {
 
                 if ($this->saveFile($fileUpload)) {
-
-                    $parser = !empty($values['itemIngredients_Id']) ? explode(';', substr_replace($values['itemIngredients_Id'], "", -1)) : array();
-
-
-                    $body = [];
-                    $body['name'] = $values['itemName'];
-                    $body['description'] = $values['itemDescription'];
-                    $body['price'] = $values['itemPrice'];
-                    $body['categoryId'] = $values["itemCategory"];
-                    $body['image'] = $fileUpload->name;
-                    $body['ingredients'] = $parser;
-
-                    if (isset($values['id']) && ($values['id'] != "")) {
-
-                        $response = $this->foodManager->editFood($body, $values['id']);
-                    } else {
-                        $response = $this->foodManager->createFood($body);
-
-                    }
-
-                    if (!$response->hasErrors()) {
-                        $this->flashMessage("Pokrm byl úspěšně uložen", "success");
-                    } else {
-                        $this->flashMessage("Data se nepodařilo užloit", "error");
-                    }
+                    $body['image'] = isset($values['itemImage']) ? $fileUpload->name : null;
 
                 } else {
                     $this->flashMessage("Soubor se nepodařilo uložit", "error");
+
+                }
+            }
+
+            if (!$error) {
+                if (isset($values['id']) && ($values['id'] != "")) {
+
+                    $response = $this->foodManager->editFood($body, $values['id']);
+                } else {
+                    $response = $this->foodManager->createFood($body);
                 }
 
+
+                if (!$response->hasErrors()) {
+                    $this->flashMessage("Pokrm byl úspěšně uložen", "success");
+                } else {
+                    $this->flashMessage("Data se nepodařilo užloit", "error");
+                }
             }
+
         }
 
 
@@ -311,7 +316,6 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         $form->addSelect('itemCategory', 'Category ID', $categories)
             ->setRequired();
         $form->addUpload('itemImage', 'Image File')
-            ->setRequired()
             ->addRule(Form::MIME_TYPE, 'Please upload an image', ['image/jpeg', 'image/png']);
         $form->addText('itemIngredients', 'Ingredients (separated by commas)');
 

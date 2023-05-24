@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d944423f-9ab9-4f6d-b593-2743dae7b143" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Model/BaseManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/FileManager.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Model/FoodManager.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/HomePresenter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" beforeDir="false" afterPath="$PROJECT_DIR$/app/Presenters/templates/Home/default.latte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/common.neon" beforeDir="false" afterPath="$PROJECT_DIR$/config/common.neon" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
