@@ -37,11 +37,6 @@ class BaseManager
 
         $response = $response->send();
 
-        if ($response->hasErrors()) {
-            $presenter = $this->getPresenter();
-            $presenter->flashMessage('Chyba při zpracování požadavku.', 'error');
-
-        }
         return $response;
     }
 

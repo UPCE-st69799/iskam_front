@@ -120,16 +120,8 @@ final class HomePresenter extends Nette\Application\UI\Presenter
             }
         }
 
-        $request = \Httpful\Request::get($this->api['url'] . 'appFood')
-            ->expectsJson()
-            ->send();
 
-        $this->template->foods = $request->body;
-        $this->template->pages = $request->headers['X-Total-Pages'];
-        $this->template->actualPage = $request->headers['X-Actual-Pages'] + 1;
-        $this->redrawControl("foods");
-        $this->redrawControl("pages");
-        $this->redrawControl("script");
+        $this->readDataWithFilter(null);
 
     }
 
@@ -158,16 +150,15 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
     public function actionOut(): void
     {
-        $this->getUser()->logout();
+        $this->getUser()->logout(true);
         $this->redirect('home:default');
     }
 
 
     public function handleDelete($id)
     {
-        $request = \Httpful\Request::delete($this->api['url'] . 'appFood/' . $id)
-            ->expectsJson()
-            ->send();
+        $request = $this->foodManager->deleteFoodById($id);
+
         $this->flashMessage("Jídlo úspěšně smazáno", "success");
 
         $this->redrawControl("foods");
@@ -178,9 +169,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
     public function handleFilterFormSubmitted(Form $form, $values)
     {
-
         $this->readDataWithFilter($values);
-
     }
 
     public function handleRead(int $page)
@@ -191,10 +180,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
     public function handleEdit()
     {
         $id = $_POST['id'];
-
-        $request = \Httpful\Request::get($this->api['url'] . 'appFood/' . $id)
-            ->addHeader('Authorization', "Bearer " . $this->user->id)
-            ->send();
+        $request = $this->foodManager->getFoodById($id);
         $this->sendJson($request->body);
     }
 
@@ -224,11 +210,8 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         }
 
 
-        $request = \Httpful\Request::post($this->api['url'] . 'appFood/query?size=6&page=' . $page - 1)
-            ->addHeader('Authorization', "Bearer " . $this->user->id)
-            ->sendsJson()
-            ->body(empty($body) ? "{}" : json_encode($body))
-            ->send();
+        $request = $this->foodManager->getDataWithFilter($body, $page);
+
 
         if ($request->hasErrors()) {
             $this->template->foods = [];
@@ -245,7 +228,6 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         }
         $this->redrawControl('foods');
         $this->redrawControl("pages");
-        //$this->redrawControl("script");
     }
 
     protected function createComponentLoginForm(): Form
@@ -269,9 +251,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
     protected function createComponentAddFoodForm(): Form
     {
-        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
-            ->addHeader('Authorization', "Bearer " . $this->user->id)
-            ->send();
+        $request = $this->foodManager->getAllCategory();
 
         $categories = [];
 
@@ -309,9 +289,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 
     protected function createComponentEditFoodForm(): Form
     {
-        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
-            ->addHeader('Authorization', "Bearer " . $this->user->id)
-            ->send();
+        $request = $this->foodManager->getAllCategory();
 
         $categories = [];
 
@@ -359,9 +337,7 @@ final class HomePresenter extends Nette\Application\UI\Presenter
             "price:desc" => "price sestupně",
         ];
 
-        $request = \Httpful\Request::get($this->api['url'] . 'appCategory')
-            ->addHeader('Authorization', "Bearer " . $this->user->id)
-            ->send();
+        $request = $this->foodManager->getAllCategory();
 
         $categories = [];
 
