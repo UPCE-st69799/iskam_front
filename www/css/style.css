@@ -1,0 +1,60 @@
+body {
+    background-color: whitesmoke !important;
+}
+#custom-search {
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    border-radius: 0;
+    font-size: 1.2rem;
+}
+
+#custom-search:focus {
+    border-color: whitesmoke;
+    box-shadow: none;
+}
+
+.disabled {
+
+    opacity: 0.3;
+}
+
+.readolny {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.delete-cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: whitesmoke;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.delete-cross:hover {
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #dc3545;
+}
+
+.edit-pencil{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.edit-pencil:hover{
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #3599dc;
+}
